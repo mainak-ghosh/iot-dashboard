@@ -1,16 +1,79 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root{
+        --color-bg-primary: #ffffff;
+        --color-bg-secondary: #000000;
+
+        --color-bg-accent: #195580;
+        --color-bg-muted : #e49b9b;
+
+        --color-text-light : #ffffff;
+        --color-text-dark : #000000;
+        --color-text-accent : #df3939;
+
+
+        /* Light theme colors*/
+        --color-lighttheme-white: #ffffff; /* Main body bg color*/
+        --color-lighttheme-white-shadow: #E5E5E5;
+
+        --color-lighttheme-accent: #4D94FF; /* Main body content accent color*/
+        --color-lighttheme-accent-shadow: #E5E5E5;
+
+        --color-lighttheme-accent-light: #E3EDFE; /* Sidebar-content bg color*/
+        --color-lighttheme-accent-light-shadow: #D8DEED;
+
+        --color-lighttheme-accent-lighter: #F7F9FE; /* Sidebar bg color*/
+        --color-lighttheme-accent-lighter-shadow: #E2E8F6;
+
+        --color-lighttheme-text-dark: #363636; 
+        --color-lighttheme-text-light: #F5F5F5;
+         
+        /* Dark theme colors*/ 
+        --color-darktheme-accent: #FFCF23; /* Main body content accent color*/
+        --color-darktheme-accent-shadow: #202020;
+
+        --color-darktheme-black: #202020; /* Sidebar bg color*/
+        --color-darktheme-black-shadow: #101010;
+
+        --color-darktheme-black-light: #303030; /* Main body bg color*/
+        --color-darktheme-black-light-shadow: #252525;
+
+        --color-darktheme-black-lighter: #404040;/* content bg color*/
+        --color-darktheme-black-lighter-shadow: #252525;
+
+        --color-darktheme-text-dark: #353535; 
+        --color-darktheme-text-light: #F5F5F5;
+        
+
+        /* Mac OS style button */
+        --color-macstyle-btn-red : #F33C3C;
+        --color-macstyle-btn-green : #4AC62C;
+        --color-macstyle-btn-yellow : #FFCF23;
+
+    }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+::-webkit-scrollbar {
+    width: 0.2rem;
+    border-radius: 100px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
 
-* {
-  box-sizing: border-box;
-}
+
