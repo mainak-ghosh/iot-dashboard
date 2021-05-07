@@ -27,7 +27,7 @@ const LocData = ({place}) => {
 
 const Sidebar = () => {
   return (
-    <div className="hidden lg:flex flex-col sticky inset-y-0 left-0 h-screen w-80 bg-accent-lighter dark:bg-black text-black-textLt shadow-inner font-semibold">
+    <div className="hidden lg:flex flex-col sticky inset-y-0 h-screen w-60 xl:w-64 bg-accent-lighter dark:bg-black text-black-textLt shadow-inner font-semibold">
       <div className="flex flex-col p-4">
         <div className="flex-auto flex flex-row justify-between">
           <h1 className="text-xl font-semibold">Mainak G.</h1>
@@ -49,7 +49,7 @@ const Sidebar = () => {
 
         <input
           placeholder="Search locations"
-          className="p-3 mt-8 mb-8 shadow-md bg-accent-light rounded text-black-textLt text-semibold placeholder-black-textLt "
+          className="p-3 mt-8 mb-8 shadow-md bg-white rounded text-black-textLt text-semibold placeholder-black-textLt "
         ></input>
 
         <div className="flex flex-row justify-between ">
@@ -70,19 +70,7 @@ const Sidebar = () => {
         <LocData place="Mumbai"/>
         <LocData place="Burdwan"/>
         <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Durgapur"/>
+        
         
         
       </div>

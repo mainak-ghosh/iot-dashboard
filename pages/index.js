@@ -11,15 +11,25 @@ import {
 
 export default function Home() {
   return (
-    <div className="h-screen mr-4 ml-4 mt-2">
-      <TitleBar pagetitle="Home" />
- 
+    <div className="h-screen pr-4 pl-4 overflow-y-auto">
+      <div className="sticky top-0 bg-white pt-1 pb-1">
+        <TitleBar pagetitle="Home"/>
+      </div>
+
       <div className="overflow-y-auto">
         <QuickView />
 
-        <div className="h-full mt-6 bg-red-200 flex flex-row space-x-6">
-          <ChartView />
-          <MapView />
+        <div>
+            <h1 className="pt-2 pb-2 text-lg font-semibold">Data Visualization</h1>
+            <hr></hr>
+        </div>
+
+        <div className="h-full grid lg:grid-cols-3 gap-3 mt-2 pt-4 pb-4">
+          <div className="h-full lg:col-span-2">
+            <ChartView />
+          </div>
+          <MapView />    
+          
         </div>
       </div>
     </div>
