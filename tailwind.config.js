@@ -3,6 +3,18 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
+      maxWidth: {
+        screen4xl:'2048px'
+       },
+      minWidth: {
+        bigBox:'300px'
+      },
+      minHeight:{
+        bigBox:'400px'
+      },
+      maxHeight:{
+        bigBox:'600px'
+      },
       colors:{
         white:{
           DEFAULT : 'var(--color-lighttheme-white)',
@@ -36,8 +48,10 @@ module.exports = {
         },
         yellow:{
           DEFAULT: 'var(--color-macstyle-btn-yellow)'
+        },
+        grey:{
+          DEFAULT:'#F8F8F8'
         }
-
       }
     }
   },
