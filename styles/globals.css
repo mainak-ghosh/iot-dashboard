@@ -28,7 +28,8 @@
         --color-lighttheme-accent-lighter: #F7F9FE; /* Sidebar bg color*/
         --color-lighttheme-accent-lighter-shadow: #E2E8F6;
 
-        --color-lighttheme-text-dark: #363636; 
+        --color-lighttheme-text-dark: #2B3F5C; 
+        /* --color-lighttheme-text-dark: #363636;  */
         --color-lighttheme-text-light: #F5F5F5;
          
         /* Dark theme colors*/ 
