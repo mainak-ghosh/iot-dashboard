@@ -1,10 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
+import { useState } from "react";
 
-const LocData = ({place}) => {
+const Stations = ({ station, subStationData }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  console.log("place in location Component", station);
+  console.log("subStationData in location Component", subStationData);
   return (
     <>
-      <div className="flex flex-row justify-between p-1 hover:bg-accent-light ">
-        <h1>{place}</h1>
+      <div
+        onClick={() => {
+          console.log(`click on ${station}`);
+          setIsOpen(!isOpen);
+        }}
+        className="flex flex-row justify-between p-1 transform transition duration-200 hover:bg-accent-light hover:text-black-textLt hover:scale-105 cursor-pointer"
+      >
+        <h1>{station}</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
@@ -20,14 +30,31 @@ const LocData = ({place}) => {
           />
         </svg>
       </div>
+      {isOpen && (
+        <div className="">
+          {subStationData.map((data) => (
+            <p
+              key={data.deviceId}
+              className="flex justify-between items-center pl-4 pt-2 pb-2 pr-2 transform transition duration-200 hover:bg-accent-light hover:text-black-textLt hover:scale-105 cursor-pointer"
+              onClick={() => {
+                console.log(`Clicked from ${data.subStationName}`)
+              }}
+            >
+              {data.subStationName}
+            </p>
+          ))}
+        </div>
+      )}
       <hr></hr>
     </>
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({ stations }) => {
+  console.log("station data in sidebar : ", stations);
+
   return (
-    <div className="hidden lg:flex flex-col sticky inset-y-0 h-screen w-60 xl:w-64 bg-accent-lighter dark:bg-black text-black-textLt shadow-inner font-semibold">
+    <div className="hidden lg:flex flex-col sticky inset-y-0 h-screen w-60 xl:w-64 bg-blue-antarticBlue dark:bg-black text-white-textLt shadow-inner font-semibold">
       <div className="flex flex-col p-4">
         <div className="flex-auto flex flex-row justify-between">
           <h1 className="text-xl font-semibold">Mainak G.</h1>
@@ -49,7 +76,7 @@ const Sidebar = () => {
 
         <input
           placeholder="Search locations"
-          className="p-3 mt-8 mb-8 shadow-md bg-white rounded text-black-textLt text-semibold placeholder-black-textLt "
+          className="p-2 mt-8 mb-8 shadow-md bg-white rounded text-black-textLt text-semibold placeholder-black-textLt "
         ></input>
 
         <div className="flex flex-row justify-between ">
@@ -60,22 +87,15 @@ const Sidebar = () => {
       </div>
 
       <div className="flex-1 space-y-2 overflow-y-auto p-4">
-        <LocData place="Kolkata"/>
-        <LocData place="Durgapur"/>
-        <LocData place="Asansol"/>
-        <LocData place="Raniganj"/>
-        <LocData place="Howrah"/>
-        <LocData place="Bolpur"/>
-        <LocData place="Darjeeling"/>
-        <LocData place="Mumbai"/>
-        <LocData place="Burdwan"/>
-        <LocData place="Durgapur"/>
-        
-        
-        
+        {stations.map((data) => (
+          <Stations
+            key={data.stationName}
+            station={data.stationName}
+            subStationData={data.subStations}
+          />
+        ))}
       </div>
     </div>
   );
 };
-
 export default Sidebar;
