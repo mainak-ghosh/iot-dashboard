@@ -5,23 +5,42 @@ import { Sidebar, MapView, ChartView } from "../components";
 import stationData from "./stationdata";
 
 function MyApp({ Component, pageProps }) {
-
+  // Locations data stored in this state
   const [stations, setStations] = useState([]);
 
+  // The selected location state of the dashboard
+  const [selectedStation, setSelectedStation] = useState({
+    selectedStationId: "",
+    selectedStationName: "",
+    selectedSubStationName: "",
+    selectedDeviceId: "",
+  });
+
+  // Initially fetch station data and set the states.
   useEffect(() => {
     console.log("UF : station data : ", stationData);
     setStations(stationData);
+    setSelectedStation({
+      ...selectedStation,
+      selectedStationId: stationData[0].stationId,
+      selectedStationName: stationData[0].stationName,
+      selectedDeviceId: stationData[0].subStations[0].deviceId,
+      selectedSubStationName:stationData[0].subStations[0].subStationName
+    });
+
     return () => {
       //cleanup
     };
   }, [stationData]);
 
-  console.log("station data : ", stationData);
   return (
     <div className="h-screen w-full flex flex-row justify-center">
       <div className="h-screen w-full flex flex-row overflow-hidden max-w-screen4xl">
         <div>
-          <Sidebar stations={stations}/>
+          <Sidebar
+            stations={stations}
+            changeSelectedStation={setSelectedStation}
+          />
         </div>
 
         <div className="flex-1 w-full">
