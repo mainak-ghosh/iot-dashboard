@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { useState } from "react";
 
+// This is a component for showing the stations in sidebar
 const Stations = ({ station, subStationData }) => {
   const [isOpen, setIsOpen] = useState(false);
   console.log("place in location Component", station);
@@ -9,7 +10,7 @@ const Stations = ({ station, subStationData }) => {
     <>
       <div
         onClick={() => {
-          console.log(`click on ${station}`);
+          // Changing the state of station selection.
           setIsOpen(!isOpen);
         }}
         className="flex flex-row justify-between p-1 transform transition duration-200 hover:bg-accent-light hover:text-black-textLt hover:scale-105 cursor-pointer"
@@ -50,14 +51,17 @@ const Stations = ({ station, subStationData }) => {
   );
 };
 
-const Sidebar = ({ stations }) => {
+// Sidebar component
+const Sidebar = ({ stations, changeSelectedStation }) => {
   console.log("station data in sidebar : ", stations);
 
   return (
     <div className="hidden lg:flex flex-col sticky inset-y-0 h-screen w-60 xl:w-64 bg-blue-antarticBlue dark:bg-black text-white-textLt shadow-inner font-semibold">
       <div className="flex flex-col p-4">
         <div className="flex-auto flex flex-row justify-between">
-          <h1 className="text-xl font-semibold">Mainak G.</h1>
+          <h1 className="text-xl font-semibold">John D.</h1>
+
+          {/* Icon for User */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -89,7 +93,7 @@ const Sidebar = ({ stations }) => {
       <div className="flex-1 space-y-2 overflow-y-auto p-4">
         {stations.map((data) => (
           <Stations
-            key={data.stationName}
+            key={data.stationId}
             station={data.stationName}
             subStationData={data.subStations}
           />
