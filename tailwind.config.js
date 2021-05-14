@@ -48,6 +48,7 @@ module.exports = {
         },
         yellow: {
           DEFAULT: "var(--color-macstyle-btn-yellow)",
+          chartbg: "#FFEFE2",
         },
         grey: {
           DEFAULT: "#F8F8F8",

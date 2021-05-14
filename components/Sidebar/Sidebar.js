@@ -13,7 +13,7 @@ const Stations = ({ station, subStationData }) => {
           // Changing the state of station selection.
           setIsOpen(!isOpen);
         }}
-        className="flex flex-row justify-between p-1 transform transition duration-200 hover:bg-accent-light hover:text-black-textLt hover:scale-105 cursor-pointer"
+        className="flex flex-row justify-between p-1 rounded-sm transform transition duration-200 hover:bg-accent-light hover:text-black-textLt hover:scale-105 cursor-pointer"
       >
         <h1>{station}</h1>
         <svg
@@ -32,13 +32,13 @@ const Stations = ({ station, subStationData }) => {
         </svg>
       </div>
       {isOpen && (
-        <div className="">
+        <div>
           {subStationData.map((data) => (
             <p
               key={data.deviceId}
-              className="flex justify-between items-center pl-4 pt-2 pb-2 pr-2 transform transition duration-200 hover:bg-accent-light hover:text-black-textLt hover:scale-105 cursor-pointer"
+              className="flex justify-between items-center pl-4 pt-2 pb-2 pr-2 rounded-sm transform transition duration-200 hover:bg-accent-light hover:text-black-textLt hover:scale-105 cursor-pointer"
               onClick={() => {
-                console.log(`Clicked from ${data.subStationName}`)
+                console.log(`Clicked from ${data.subStationName}`);
               }}
             >
               {data.subStationName}
@@ -52,7 +52,7 @@ const Stations = ({ station, subStationData }) => {
 };
 
 // Sidebar component
-const Sidebar = ({ stations, changeSelectedStation }) => {
+const Sidebar = ({ stations }) => {
   console.log("station data in sidebar : ", stations);
 
   return (
