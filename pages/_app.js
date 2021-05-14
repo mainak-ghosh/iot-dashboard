@@ -1,8 +1,9 @@
 import "../styles/globals.css";
 //import 'tailwindcss/tailwind.css'
 import { useEffect, useState, useReducer } from "react";
-import { Sidebar, MapView, ChartView } from "../components";
-import stationData from "./stationdata";
+import { Sidebar } from "../components";
+import stationData from "../stationdata";
+import simulatedData from "../iotDeviceSimulator"
 
 function MyApp({ Component, pageProps }) {
   // Locations data stored in this state
@@ -27,11 +28,12 @@ function MyApp({ Component, pageProps }) {
       selectedDeviceId: stationData[0].subStations[0].deviceId,
       selectedSubStationName:stationData[0].subStations[0].subStationName
     });
+  }, []);
 
-    return () => {
-      //cleanup
-    };
-  }, [stationData]);
+  // Data from Iot device
+  useEffect(() => {
+    console.log("Data from simulator: ", simulatedData);
+  }, [])
 
   return (
     <div className="h-screen w-full flex flex-row justify-center">
@@ -39,7 +41,6 @@ function MyApp({ Component, pageProps }) {
         <div>
           <Sidebar
             stations={stations}
-            changeSelectedStation={setSelectedStation}
           />
         </div>
 

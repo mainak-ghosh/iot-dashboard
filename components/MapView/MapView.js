@@ -1,8 +1,10 @@
 import React from "react";
+import Link from 'next/link'
 
 const MapView = () => {
   return (
     <div className="rounded-md bg-grey text-dark-textLt shadow-lg overflow-hidden">
+      <Link href="/map">
       <div className="pt-1 pb-1 pl-3 pr-3 flex flex-row justify-between items-center transition duration-200 hover:bg-blue-antarticBlue hover:text-white-textLt cursor-pointer">
         <h1 className="text-sm font-medium">Maps</h1>
         <svg
@@ -20,6 +22,7 @@ const MapView = () => {
           />
         </svg>
       </div>
+      </Link>
       <hr></hr>
       <div>Hi I'm the element between maps</div>
     </div>
