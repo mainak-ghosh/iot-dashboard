@@ -57,8 +57,8 @@ const ChartView = () => {
           >
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#FD7E14" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#FD7E14" stopOpacity={0.2} />
+                <stop offset="5%" stopColor="#007BFF" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#007BFF" stopOpacity={0.2} />
               </linearGradient>
               <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
@@ -73,10 +73,11 @@ const ChartView = () => {
             <Area
               type="monotone"
               dataKey="uv"
-              stroke="#FD7E14"
+              stroke="#007BFF"
+              strokeWidth={2}
               fillOpacity={1}
-              // fill="url(#colorUv)"
-              fill="#FEB170"
+              fill="url(#colorUv)"
+              // fill="#EFF7FF"
             />
             {/* <Area
               type="monotone"
@@ -98,8 +99,9 @@ const ChartView = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="pv" stroke="#FD7E14" strokeWidth={3}/>
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" strokeWidth={3}/>
+            <Line type="monotone" dataKey="pv" stroke="#007BFF" strokeWidth={3}/>
+            {/* <Line type="monotone" dataKey="pv" stroke="#FD7E14" strokeWidth={3}/> */}
+            <Line type="monotone" dataKey="uv" stroke="#FD7E14" strokeWidth={3}/>
           </LineChart>
         );
       case "BarChart":
@@ -133,10 +135,10 @@ const ChartView = () => {
   };
 
   return (
-    <div className="rounded-md bg-grey text-dark-textLt shadow-lg transform transition duration-200 overflow-hidden">
+    <div className="rounded-md bg-white text-dark-textLt shadow-lg transform transition duration-200 overflow-hidden max-h-bigBox">
       <Link href="/chart">
         <div className="pt-1 pb-1 pl-3 pr-3 flex flex-row justify-between items-center transition duration-200 hover:bg-blue-antarticBlue hover:text-white-textLt cursor-pointer">
-          <h1 className="text-sm font-medium">Charts</h1>
+          <h1 className="text-sm font-medium">Real Time Charts</h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4"

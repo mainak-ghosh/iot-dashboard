@@ -32,19 +32,20 @@ function MyApp({ Component, pageProps }) {
 
   // Data from Iot device
   useEffect(() => {
+
     console.log("Data from simulator: ", simulatedData);
   }, [])
 
   return (
     <div className="h-screen w-full flex flex-row justify-center">
-      <div className="h-screen w-full flex flex-row overflow-hidden max-w-screen4xl">
+      <div className="h-full w-full flex flex-row overflow-hidden max-w-screen4xl">
         <div>
           <Sidebar
             stations={stations}
           />
         </div>
 
-        <div className="flex-1 w-full">
+        <div className="flex-1 w-full h-full bg-gray-100">
           <Component {...pageProps} />
         </div>
       </div>

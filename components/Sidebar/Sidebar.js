@@ -56,7 +56,7 @@ const Sidebar = ({ stations }) => {
   console.log("station data in sidebar : ", stations);
 
   return (
-    <div className="hidden lg:flex flex-col sticky inset-y-0 h-screen w-60 xl:w-64 bg-blue-antarticBlue dark:bg-black text-white-textLt shadow-inner font-semibold">
+    <div className="hidden lg:flex flex-col sticky inset-y-0 h-screen w-52 xl:w-58 bg-blue-antarticBlue dark:bg-black text-white-textLt shadow-inner font-semibold">
       <div className="flex flex-col p-4">
         <div className="flex-auto flex flex-row justify-between">
           <h1 className="text-xl font-semibold">John D.</h1>
@@ -90,7 +90,7 @@ const Sidebar = ({ stations }) => {
         <hr></hr>
       </div>
 
-      <div className="flex-1 space-y-2 overflow-y-auto p-4">
+      <div className="flex-1 space-y-2 overflow-y-auto p-4 text-sm">
         {stations.map((data) => (
           <Stations
             key={data.stationId}

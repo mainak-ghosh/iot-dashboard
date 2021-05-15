@@ -10,10 +10,10 @@ import {
   TitleBar,
 } from "../components";
 
-export default function Home() {
+export default function Home({googleMapsApiKey}) {
   return (
-    <div className="h-screen pr-4 pl-4 overflow-y-auto">
-      <div className="sticky top-0 bg-white pt-1 pb-1">
+    <div className="h-full pr-4 pl-4">
+      <div className="sticky top-0 bg-gray-100 pt-1 pb-1">
         <TitleBar pagetitle="Home"/>
       </div>
 
@@ -25,14 +25,28 @@ export default function Home() {
             <hr></hr>
         </div>
 
-        <div className="h-full grid lg:grid-cols-3 gap-3 mt-2 pt-4 pb-4">
-          <div className="h-full lg:col-span-2">
+        <div className="h-full grid lg:grid-cols-4 gap-2 lg:gap-3 mt-2 pt-4 pb-4">
+          <div className="h-full lg:col-span-3">
             <ChartView />
           </div>
-          <MapView />    
+          <MapView googleMapsApiKey={googleMapsApiKey}/>    
           
         </div>
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  // Get the environmental variables
+  const googleMapsApiKey = process.env.GOOGLE_MAP_API_KEY;
+  console.log("ssrendering api key:",googleMapsApiKey);
+  if (!googleMapsApiKey) {
+    return {
+      notFound: true,
+    }
+  }
+  return {
+    props: {googleMapsApiKey}, // will be passed to the page component as props
+  }
 }

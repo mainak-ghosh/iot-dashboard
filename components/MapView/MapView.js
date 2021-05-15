@@ -1,12 +1,51 @@
 import React from "react";
-import Link from 'next/link'
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
-const MapView = () => {
+const libraries = ["places"];
+const mapContainerStyle = {
+  width: "100%",
+  height: "100%",
+};
+const center = {
+  lat: 22.572645,
+  lng: 88.363892,
+};
+const markerPosition = {
+  lat: 22.544755,
+  lng: 88.342516,
+};
+
+const LoadMap = ({ googleMapsApiKey }) => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: googleMapsApiKey,
+    libraries,
+    // ...otherOptions
+  });
+
+  const renderMap = () => {
+    return (
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        center={center}
+        zoom={12}
+      >
+        <Marker position={markerPosition} />
+      </GoogleMap>
+    );
+  };
+
+  if (loadError) {
+    return <div>Map cannot be loaded right now, sorry.</div>;
+  }
+
+  return isLoaded ? renderMap() : <div>Loading...</div>;
+};
+
+const MapView = ({ googleMapsApiKey }) => {
   return (
-    <div className="rounded-md bg-grey text-dark-textLt shadow-lg overflow-hidden">
-      <Link href="/map">
-      <div className="pt-1 pb-1 pl-3 pr-3 flex flex-row justify-between items-center transition duration-200 hover:bg-blue-antarticBlue hover:text-white-textLt cursor-pointer">
-        <h1 className="text-sm font-medium">Maps</h1>
+    <div className="rounded-md bg-white text-dark-textLt shadow-lg max-h-bigBox overflow-hidden">
+      <div className="pt-1 pb-1 pl-3 pr-3 flex flex-row justify-between items-center transition duration-200 hover:bg-blue-antarticBlue hover:text-white-textLt">
+        <h1 className="text-sm font-medium">Iot Device Locations</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
@@ -22,9 +61,9 @@ const MapView = () => {
           />
         </svg>
       </div>
-      </Link>
+
       <hr></hr>
-      <div>Hi I'm the element between maps</div>
+      <LoadMap googleMapsApiKey={googleMapsApiKey} />
     </div>
   );
 };

@@ -13,7 +13,8 @@ module.exports = {
         bigBox: "400px",
       },
       maxHeight: {
-        bigBox: "600px",
+        400: "400px",
+        bigBox: "550px",
       },
       colors: {
         white: {
